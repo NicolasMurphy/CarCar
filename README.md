@@ -3,7 +3,7 @@
 Team:
 
 * Nicolas Murphy - Service
-* Person 2 - Which microservice?
+* Paul Baumann - Sales
 
 ## Design
 

@@ -13,17 +13,16 @@ class TechnicianListEncoder(ModelEncoder):
 class AppointmentListEncoder(ModelEncoder):
     model = Appointment
     properties = [
-        # "date_time",
+        "date_time",
         "reason",
-        # "status",
         "vin",
         "customer",
         "technician",
         "id"
         ]
     encoders = {"technician": TechnicianListEncoder()}
-    # def get_extra_data(self, o):
-    #     return {"status": o.status.name}
+    def get_extra_data(self, o):
+        return {"status": o.status.name}
 
 
 @require_http_methods(["GET", "POST"])
@@ -68,7 +67,7 @@ def api_list_appointments(request):
             return JsonResponse(
                 {"message": "Invalid technician id"}, status=400
             )
-        appointment = Appointment.objects.create(**content)
+        appointment = Appointment.create(**content)
         return JsonResponse(
             appointment,
             encoder=AppointmentListEncoder,
@@ -79,3 +78,23 @@ def api_list_appointments(request):
 def api_delete_appointment(request, id):
     count, _ = Appointment.objects.filter(id=id).delete()
     return JsonResponse({"deleted": count > 0})
+
+@require_http_methods(["PUT"])
+def api_cancel_appointment(request, id):
+    appointment = Appointment.objects.get(id=id)
+    appointment.cancel()
+    return JsonResponse(
+        appointment,
+        encoder=AppointmentListEncoder,
+        safe=False,
+    )
+
+@require_http_methods(["PUT"])
+def api_finish_appointment(request, id):
+    appointment = Appointment.objects.get(id=id)
+    appointment.finish()
+    return JsonResponse(
+        appointment,
+        encoder=AppointmentListEncoder,
+        safe=False,
+    )

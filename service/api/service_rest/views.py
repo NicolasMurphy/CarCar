@@ -22,6 +22,8 @@ class AppointmentListEncoder(ModelEncoder):
         "id"
         ]
     encoders = {"technician": TechnicianListEncoder()}
+    # def get_extra_data(self, o):
+    #     return {"status": o.status.name}
 
 
 @require_http_methods(["GET", "POST"])

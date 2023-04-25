@@ -1,4 +1,16 @@
 from django.db import models
+from django.urls import reverse
+
+
+# class Status(models.Model):
+#     name = models.CharField(max_length=10)
+
+#     def __str__(self):
+#         return self.name
+
+#     class Meta:
+#         ordering = ("id",)  # Default ordering for Status
+#         verbose_name_plural = "statuses"  # Fix the pluralization
 
 
 class Technician(models.Model):
@@ -26,23 +38,23 @@ class Appointment(models.Model):
 # maybe status like this?
     # status = models.ForeignKey(
     #     Status,
-    #     related_name="presentations",
+    #     related_name="appointments",
     #     on_delete=models.PROTECT,
     # )
 
-    # def approve(self):
-    #     status = Status.objects.get(name="APPROVED")
+    # def cancel(self):
+    #     status = Status.objects.get(name="CANCELLED")
     #     self.status = status
     #     self.save()
 
-    # def reject(self):
-    #     status = Status.objects.get(name="REJECTED")
+    # def finish(self):
+    #     status = Status.objects.get(name="FINISHED")
     #     self.status = status
     #     self.save()
 
     # @classmethod
     # def create(cls, **kwargs):
-    #     kwargs["status"] = Status.objects.get(name="SUBMITTED")
-    #     presentation = cls(**kwargs)
-    #     presentation.save()
-    #     return presentation
+    #     kwargs["status"] = Status.objects.get(name="CREATED")
+    #     appointment = cls(**kwargs)
+    #     appointment.save()
+    #     return appointment

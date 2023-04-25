@@ -16,6 +16,7 @@ class AutomobileVODetailEncoder(ModelEncoder):
 class SalespersonListEncoder(ModelEncoder):
     model = Salesperson
     properties = [
+        "id",
         "first_name",
         "last_name",
         "employee_id",
@@ -24,6 +25,7 @@ class SalespersonListEncoder(ModelEncoder):
 class CustomerListEncoder(ModelEncoder):
     model = Customer
     properties = [
+        "id",
         "first_name",
         "last_name",
         "address",
@@ -33,21 +35,27 @@ class CustomerListEncoder(ModelEncoder):
 class SaleListEncoder(ModelEncoder):
     model = Sale
     properties = [
+        "id",
         "automobile",
         "salesperson",
         "customer",
         "price",
     ]
+    encoders = {
+        "automobile": AutomobileVODetailEncoder(),
+        "salesperson": SalespersonListEncoder(),
+        "customer": CustomerListEncoder(),
+        }
     def get_extra_data(self, o):
-        return {"vin": o.auto.vin}
+        return {"vin": o.automobile.vin}
 
 
 @require_http_methods(["GET", "POST"])
 def api_list_salespeople(request):
     if request.method == "GET":
-        salesperson = Salesperson.objects.all()
+        salespeople = Salesperson.objects.all()
         return JsonResponse (
-            {"salesperson": salesperson},
+            {"salespeople": salespeople},
             encoder=SalespersonListEncoder
         )
     else:
@@ -70,11 +78,10 @@ def api_delete_salespeople(request, id):
 @require_http_methods(["GET", "POST"])
 def api_list_customers(request):
     if request.method == "GET":
-        customer = Customer.objects.all()
+        customers = Customer.objects.all()
         return JsonResponse(
-            customer,
+            {"customers": customers},
             encoder=CustomerListEncoder,
-            safe=False,
         )
 
     else:
@@ -98,12 +105,40 @@ def api_list_sales(request):
     if request.method == "GET":
         sales = Sale.objects.all()
         return JsonResponse(
-            sales,
+            {"sales": sales},
             encoder=SaleListEncoder,
-            safe=False,
         )
+
     else:
         content = json.loads(request.body)
+
+        try:
+            salesperson = Salesperson.objects.get(id=content["salesperson"])
+            content["salesperson"] = salesperson
+        except Salesperson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid salesperson"},
+                status=400,
+            )
+
+        try:
+            automobile = AutomobileVO.objects.get(vin=content["automobile"])
+            content["automobile"] = automobile
+        except AutomobileVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid vin"},
+                status=400,
+            )
+
+        try:
+            customer = Customer.objects.get(id=content["customer"])
+            content["customer"] = customer
+        except Customer.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid customer"},
+                status=400,
+            )
+
         sales = Sale.objects.create(**content)
         return JsonResponse(
             sales,

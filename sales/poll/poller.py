@@ -18,10 +18,10 @@ from sales_rest.models import AutomobileVO
 def get_vins():
     response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles/")
     content = json.loads(response.content)
-    for vins in content["autos"]:
+    for auto in content["autos"]:
         AutomobileVO.objects.update_or_create(
-            vin = vins["vin"],
-            defaults={"vin": vins["vin"]},
+            vin = auto["vin"],
+            defaults={"vin": auto["vin"]},
         )
 
 def poll(repeat = True):

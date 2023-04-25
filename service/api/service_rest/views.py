@@ -8,7 +8,7 @@ from .models import Technician, Appointment, AutomobileVO
 
 class TechnicianListEncoder(ModelEncoder):
     model = Technician
-    properties = ["first_name", "last_name", "employee_id"]
+    properties = ["first_name", "last_name", "employee_id", "id"]
 
 class AppointmentListEncoder(ModelEncoder):
     model = Appointment

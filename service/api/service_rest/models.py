@@ -18,6 +18,12 @@ class Technician(models.Model):
     last_name = models.CharField(max_length=50)
     employee_id = models.PositiveSmallIntegerField()
 
+    def __str__(self):
+        return self.first_name
+    def get_api_url(self):
+        return reverse("api_list_technicians", kwargs={"id": self.employee_id})
+
+
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
 
@@ -39,6 +45,7 @@ class Appointment(models.Model):
         Status,
         related_name="appointments",
         on_delete=models.PROTECT,
+        null=True,
     )
 
     def cancel(self):

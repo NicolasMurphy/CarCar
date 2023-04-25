@@ -33,7 +33,7 @@ def poll(repeat = True):
             print(e, file=sys.stderr)
         if (not repeat):
             break
-        time.sleep(2)
+        time.sleep(60)
 
 
 if __name__ == "__main__":

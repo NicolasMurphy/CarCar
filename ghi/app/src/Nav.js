@@ -12,17 +12,11 @@ function Nav() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink className="nav-link" to="/technicians">Technicians List</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/technicians/new">Create a Technician</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/appointments">Appointments List</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/appointments/new">Create an Appointment</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/appointments/history">Appointments History</NavLink>
             </li>
             <li className="nav-item">

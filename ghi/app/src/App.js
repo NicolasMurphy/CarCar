@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import TechnicianForm from './TechnicianForm';
-import TechniciansList from './TechniciansList';
-import AppointmentForm from './AppointmentForm';
-import AppointmentsList from './AppointmentsList';
-import AppointmentHistory from './AppointmentsHistory';
+import TechnicianForm from './Service/Technicians/TechnicianForm';
+import TechniciansList from './Service/Technicians/TechniciansList';
+import AppointmentForm from './Service/Appointments/AppointmentForm';
+import AppointmentsList from './Service/Appointments/AppointmentsList';
+import AppointmentHistory from './Service/Appointments/AppointmentsHistory';
 import SalespeopleList from './SalesStaff/SalepeopleList';
 import SalespeopleForm from './SalesStaff/SalespeopleForm';
 import CustomerList from './Customers/CustomerList';
@@ -13,6 +13,7 @@ import CustomerForm from './Customers/CustomerForm';
 import SaleList from './Sales/SaleList';
 import SaleForm from './Sales/SaleForm';
 import SaleHistory from './Sales/SalesHistory';
+
 
 function App() {
   return (

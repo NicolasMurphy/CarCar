@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function TechniciansForm() {
     const [first_name, setFirstName] = useState('');
@@ -52,7 +52,7 @@ function TechniciansForm() {
         <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Create a new technician</h1>
+            <h1>Add a Technician</h1>
             <form onSubmit={handleSubmit} id="create-technician-form">
 
                 <div className="form-floating mb-3">

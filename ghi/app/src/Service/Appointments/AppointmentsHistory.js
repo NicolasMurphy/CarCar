@@ -3,6 +3,11 @@ import { useState, useEffect} from 'react';
 function AppointmentsHistory() {
   const [appointments, setAppointments] = useState([]);
   const [autos, setAutos] = useState([]);
+  const [filterValue, setFilterValue] = useState("");
+
+  const handleFilterValueChange = (e) => {
+    setFilterValue(e.target.value);
+  }
 
   const getAppointmentData = async () => {
     const resp = await fetch('http://localhost:8080/api/appointments/');
@@ -26,6 +31,10 @@ function AppointmentsHistory() {
   }, [])
 
     return (
+      <>
+      <br></br>
+      <h1>Appointments History</h1>
+      <input class="form-control border-end-0 border rounded-pill" onChange={handleFilterValueChange} value={filterValue} placeholder="Filter Value" />
       <table className="table table-striped">
         <thead>
           <tr>
@@ -40,7 +49,9 @@ function AppointmentsHistory() {
           </tr>
         </thead>
         <tbody>
-          {appointments.map(appointment => {
+          {appointments
+          .filter((appointment) => appointment.vin.toLowerCase().includes(filterValue.toLowerCase()))
+          .map(appointment => {
             let str = JSON.stringify(autos)
             return (
               <tr key={appointment.id}>
@@ -57,6 +68,7 @@ function AppointmentsHistory() {
           })}
         </tbody>
       </table>
+      </>
     );
   }
 

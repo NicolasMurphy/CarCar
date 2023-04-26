@@ -55,6 +55,9 @@ function AppointmentsList() {
   }, [])
 
     return (
+      <>
+      <br></br>
+      <h1>Appointments</h1>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -89,6 +92,7 @@ function AppointmentsList() {
           })}
         </tbody>
       </table>
+      </>
     );
   }
 export default AppointmentsList;

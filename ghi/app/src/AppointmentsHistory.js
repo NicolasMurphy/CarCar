@@ -32,7 +32,8 @@ function AppointmentsHistory() {
             <th>Vin</th>
             <th>Is VIP?</th>
             <th>Customer</th>
-            <th>Datetime</th>
+            <th>Date</th>
+            <th>Time</th>
             <th>Technician</th>
             <th>Reason</th>
             <th>Status</th>
@@ -46,8 +47,9 @@ function AppointmentsHistory() {
                 <td>{ appointment.vin }</td>
                 <td>{ ((str.includes(appointment.vin)) ? "yes" : "no") }</td>
                 <td>{ appointment.customer }</td>
-                <td>{ appointment.date_time }</td>
-                <td>{ appointment.technician.id }</td>
+                <td>{ appointment.date_time.split("T")[0] }</td>
+                <td>{ appointment.date_time.split("T")[1].split("+")[0] }</td>
+                <td>{ `${appointment.technician.first_name} ${appointment.technician.last_name}` }</td>
                 <td>{ appointment.reason }</td>
                 <td>{ appointment.status }</td>
               </tr>

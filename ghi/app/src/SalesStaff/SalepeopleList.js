@@ -4,7 +4,7 @@ function SalespeopleList() {
     const [salespeople, setSalespeople] = useState([])
 
     const getData = async () => {
-        const response = await fetch('http://localhost:8090/api/sales_rest/')
+        const response = await fetch('http://localhost:8090/api/salespeople/')
 
         if (response.ok) {
             const data = await response.json()
@@ -14,7 +14,7 @@ function SalespeopleList() {
 
     const handleDeleteButton = async (event) => {
         const { id } = event.target;
-        const response = await fetch (`http://localhost:8090/api/sales_rest/${id}`, {
+        const response = await fetch (`http://localhost:8090/api/salespeople/${id}`, {
             method: 'delete'
         })
 
@@ -42,7 +42,7 @@ function SalespeopleList() {
             <tbody>
                 {salespeople.map(salesperson => {
                     return (
-                        <tr key={salesperson.href}>
+                        <tr key={salesperson.id}>
                             <td>{ salesperson.id }</td>
                             <td>{ salesperson.first_name }</td>
                             <td>{ salesperson.last_name }</td>

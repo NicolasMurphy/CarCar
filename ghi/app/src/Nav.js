@@ -11,6 +11,18 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
+              <NavLink className="nav-link" to="/manufacturers">Manufacturers</NavLink>
+              <NavLink className="nav-link" to="/manufacturers/new">Add a Manufacturer</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/models">Models</NavLink>
+              <NavLink className="nav-link" to="/models/new">Add a Model</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/automobiles">Automobiles</NavLink>
+              <NavLink className="nav-link" to="/automobiles/new">Add an Automobiles</NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" to="/technicians">Technicians List</NavLink>
               <NavLink className="nav-link" to="/technicians/new">Create a Technician</NavLink>
             </li>
@@ -21,23 +33,15 @@ function Nav() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/salespeople">Salespeople</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/salespeople/new">Add a Salesperson</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/customers">Customers</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/customers/new">Add a Customer</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/sales">Sales</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/sales/new">Add a Sale</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link" to="/sales/history">Salesperson History</NavLink>
             </li>
           </ul>

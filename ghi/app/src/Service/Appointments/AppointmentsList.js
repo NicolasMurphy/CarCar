@@ -1,6 +1,13 @@
 import { useState, useEffect} from 'react';
 
 function AppointmentsList() {
+
+  function formatTime(timeString) {
+    const [hourString, minute] = timeString.split(":");
+    const hour = +hourString % 24;
+    return (hour % 12 || 12) + ":" + minute + (hour < 12 ? " AM" : " PM");
+  }
+
   const [appointments, setAppointments] = useState([]);
   const [autos, setAutos] = useState([]);
 
@@ -80,7 +87,7 @@ function AppointmentsList() {
                 <td>{ ((str.includes(appointment.vin)) ? "yes" : "no") }</td>
                 <td>{ appointment.customer }</td>
                 <td>{ appointment.date_time.split("T")[0] }</td>
-                <td>{ appointment.date_time.split("T")[1].split("+")[0] }</td>
+                <td>{ formatTime(appointment.date_time.split("T")[1].split("+")[0]) }</td>
                 <td>{ `${appointment.technician.first_name} ${appointment.technician.last_name}` }</td>
                 <td>{ appointment.reason }</td>
                 <td>

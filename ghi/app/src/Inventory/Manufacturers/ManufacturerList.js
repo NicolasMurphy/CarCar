@@ -12,7 +12,9 @@ function ManufacturerList() {
         }
     }
 
-
+    useEffect(() => {
+        getData()
+    }, [])
 
     return (
         <table className="table table-striped">

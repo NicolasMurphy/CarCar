@@ -26,25 +26,25 @@ function Nav() {
               <NavLink className="nav-link" to="/appointments/history">Appointments History</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/salespeople">Sales Person List</NavLink>
+              <NavLink className="nav-link" to="/salespeople">Salespeople</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/salespeople/new">Sales Person Form</NavLink>
+              <NavLink className="nav-link" to="/salespeople/new">Add a Salesperson</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/customers">Customer List</NavLink>
+              <NavLink className="nav-link" to="/customers">Customers</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/customers/new">Customer Form</NavLink>
+              <NavLink className="nav-link" to="/customers/new">Add a Customer</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/sales">Sales List</NavLink>
+              <NavLink className="nav-link" to="/sales">Sales</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/sales/new">Sales Form</NavLink>
+              <NavLink className="nav-link" to="/sales/new">Add a Sale</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/sales/history">Sales History</NavLink>
+              <NavLink className="nav-link" to="/sales/history">Salesperson History</NavLink>
             </li>
           </ul>
         </div>

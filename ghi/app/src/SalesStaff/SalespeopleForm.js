@@ -24,7 +24,27 @@ function SalespeopleForm() {
         event.preventDefault();
         const data= {};
 
+        data.first_name = firstName;
+        data.last_name = lastName;
+        data.employee_id = employeeId;
 
+        const salesrepUrl = 'http://localhost:8090/api/salespeople/';
+        const fetchConfig = {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+        const response = await fetch(salesrepUrl, fetchConfig);
+        if (response.ok) {
+            const newSalesperson = await response.json();
+
+            setFirstName('');
+            setLastName('');
+            setEmployeeId('');
+        }
     }
 
     return(
@@ -41,7 +61,7 @@ function SalespeopleForm() {
                     <input value={lastName} onChange={handleLastNameChange} placeholder="Last Name" required type="text" name="lastName" id="lastName" className="form-control"/>
                     <label htmlFor="lastName">Last Name</label>
                 </div>
-                <div className="form mb-3">
+                <div className="form-floating mb-3">
                     <input value={employeeId} onChange={handleEmployeeIdChange} placeholder="Employee Id" required type="text" name="employeeId" id="employeeId" className="form-control"/>
                     <label htmlFor="employeeId">Employee ID</label>
                 </div>

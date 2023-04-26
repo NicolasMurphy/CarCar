@@ -13,6 +13,7 @@ class TechnicianListEncoder(ModelEncoder):
 class AppointmentListEncoder(ModelEncoder):
     model = Appointment
     properties = [
+        "is_vip",
         "date_time",
         "reason",
         "vin",

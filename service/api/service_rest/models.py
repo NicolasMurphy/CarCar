@@ -33,6 +33,7 @@ class Appointment(models.Model):
     reason = models.CharField(max_length=100)
     vin = models.CharField(max_length=17, unique=True)
     customer = models.CharField(max_length=100)
+    is_vip = models.BooleanField(default=False)
     technician = models.ForeignKey(
         Technician,
         related_name="appointments",

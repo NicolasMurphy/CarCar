@@ -1,29 +1,9 @@
 from django.shortcuts import render
-from common.json import ModelEncoder
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
-from .models import Technician, Appointment, AutomobileVO
-
-
-class TechnicianListEncoder(ModelEncoder):
-    model = Technician
-    properties = ["first_name", "last_name", "employee_id", "id"]
-
-class AppointmentListEncoder(ModelEncoder):
-    model = Appointment
-    properties = [
-        "is_vip",
-        "date_time",
-        "reason",
-        "vin",
-        "customer",
-        "technician",
-        "id"
-        ]
-    encoders = {"technician": TechnicianListEncoder()}
-    def get_extra_data(self, o):
-        return {"status": o.status.name}
+from .models import Technician, Appointment
+from .encoders import TechnicianListEncoder, AppointmentListEncoder
 
 
 @require_http_methods(["GET", "POST"])

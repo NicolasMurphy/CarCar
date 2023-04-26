@@ -46,8 +46,7 @@ class SaleListEncoder(ModelEncoder):
         "salesperson": SalespersonListEncoder(),
         "customer": CustomerListEncoder(),
         }
-    def get_extra_data(self, o):
-        return {"vin": o.automobile.vin}
+
 
 
 @require_http_methods(["GET", "POST"])

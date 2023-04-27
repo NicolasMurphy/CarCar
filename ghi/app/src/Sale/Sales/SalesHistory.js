@@ -11,9 +11,10 @@ function SaleHistory() {
     setSalesperson(value);
   }
 
+
   const getSalesData = async () => {
     const salesUrl = ('http://localhost:8090/api/sales/')
-    const response = await fetch(salesUrl)
+    const response = await fetch(salesUrl);
     if (response.ok) {
       const data = await response.json();
       setSales(data.sales)
@@ -62,7 +63,7 @@ function SaleHistory() {
             </tr>
           </thead>
           <tbody>
-            {sales.map(sale => {
+            {sales.filter((sale) => sale.salesperson.employee_id === parseInt(salesperson)).map(sale => {
               return (
                 <tr key={sale.id}>
                   <td>{ `${sale.salesperson.first_name} ${sale.salesperson.last_name}` }</td>

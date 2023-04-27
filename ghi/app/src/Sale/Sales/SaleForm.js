@@ -1,7 +1,7 @@
-import { useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 
 function SaleForm() {
-  const [automobiles, setAutomobiles] = useState([]);
+  const [autos, setAutomobiles] = useState([]);
   const [salespeople, setSalespeople] = useState([]);
   const [customers, setCustomers] = useState([]);
 
@@ -31,10 +31,11 @@ function SaleForm() {
   }
 
   const handleSubmit = async (event) => {
+    console.log(handleSubmit);
     event.preventDefault();
-    const data = {};
 
-    data.automobile = automobile;
+    const data = {};
+    data.auto = automobile;
     data.salesperson = salesperson;
     data.customer = customer;
     data.price = price;
@@ -60,29 +61,32 @@ function SaleForm() {
 
   const getAutomobileData = async () => {
     const automobileUrl = 'http://localhost:8100/api/automobiles/';
-    const response = fetch(automobileUrl);
+    const response = await fetch(automobileUrl);
 
     if (response.ok) {
       const data = await response.json();
-      setAutomobiles(data.automobiles);
+      /*console.log('automobile data:', data);*/
+      setAutomobiles(data.autos);
     }
   }
 
   const getPersonData = async () => {
     const salespersonUrl = 'http://localhost:8090/api/salespeople/';
-    const response = fetch(salespersonUrl);
+    const response = await fetch(salespersonUrl);
     if (response.ok) {
       const data = await response.json();
+      /*console.log('salespeople data:', data);*/
       setSalespeople(data.salespeople);
     }
   }
 
   const getCustomerData = async () => {
     const customerUrl = 'http://localhost:8090/api/customers/';
-    const response = fetch(customerUrl);
+    const response = await fetch(customerUrl);
     if (response.ok) {
       const data = await response.json();
-      setCustomers(data.customer);
+      /*console.log('customer data:', data);*/
+      setCustomers(data.customers);
     }
   }
 
@@ -100,9 +104,9 @@ function SaleForm() {
           <h1>Add a Sale</h1>
           <form onSubmit={handleSubmit} id="create-sale-form">
               <div className="mb-3">
-                <select value={automobile} onChange={handleAutomobileChange} required name="automobiles" id="automobiles" className="form-select">
+                <select value={automobile} onChange={handleAutomobileChange} required name="automobile" id="automobile" className="form-select">
                   <option value="">Choose an Automobile VIN</option>
-                  {automobiles.map(automobile => {
+                  {autos.map(automobile => {
                     return (
                         <option key={automobile.vin} value={automobile.vin}>
                             {automobile.vin}
@@ -112,7 +116,7 @@ function SaleForm() {
                 </select>
               </div>
               <div className="mb-3">
-                <select value={salesperson} onChange={handleSalespersonChange} required name="salespeople" id="salespeople" className="form-select">
+                <select value={salesperson} onChange={handleSalespersonChange} required name="salesperson" id="salesperson" className="form-select">
                   <option value="">Choose a Salesperson</option>
                   {salespeople.map(salesperson => {
                     return (
@@ -124,7 +128,7 @@ function SaleForm() {
                 </select>
               </div>
               <div className="mb-3">
-                <select value={customer} onChange={handleCustomerChange} required name="customers" id="customers" className="form-select">
+                <select value={customer} onChange={handleCustomerChange} required name="customer" id="customer" className="form-select">
                   <option value="">Choose a Customer</option>
                   {customers.map(customer => {
                     return (

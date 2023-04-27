@@ -29,6 +29,8 @@ function CustomerList() {
     }, [])
 
     return (
+        <>
+        <h1>Customers</h1>
         <table className="table table-striped">
             <thead>
                 <tr>
@@ -54,6 +56,7 @@ function CustomerList() {
                 })}
             </tbody>
         </table>
+        </>
     );
   }
 

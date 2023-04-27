@@ -30,6 +30,8 @@ function SalespeopleList() {
 
 
     return (
+        <>
+        <h1>Salespeople</h1>
         <table className="table table-striped">
             <thead>
                 <tr>
@@ -53,6 +55,7 @@ function SalespeopleList() {
                 })}
             </tbody>
         </table>
+        </>
     );
 }
 

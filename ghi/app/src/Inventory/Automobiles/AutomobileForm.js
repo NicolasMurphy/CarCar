@@ -34,7 +34,7 @@ function AutomobileForm () {
         data.color = color;
         data.year = year;
         data.vin = vin;
-        data.model = model;
+        data.model_id = model;
 
         const automobilesUrl = 'http://localhost:8100/api/automobiles/';
         const fetchConfig = {

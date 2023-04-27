@@ -35,7 +35,7 @@ function SaleForm() {
     event.preventDefault();
 
     const data = {};
-    data.auto = automobile;
+    data.automobile = automobile;
     data.salesperson = salesperson;
     data.customer = customer;
     data.price = price;
@@ -46,7 +46,7 @@ function SaleForm() {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-      }
+      },
     };
 
     const response = await fetch(salesUrl, fetchConfig);
@@ -120,7 +120,7 @@ function SaleForm() {
                   <option value="">Choose a Salesperson</option>
                   {salespeople.map(salesperson => {
                     return (
-                        <option key={salesperson.employee_id} value={salesperson.employee_id}>
+                        <option key={salesperson.id} value={salesperson.id}>
                             {salesperson.first_name + ' ' + salesperson.last_name}
                         </option>
                     );

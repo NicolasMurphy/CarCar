@@ -55,8 +55,6 @@ function AppointmentForm() {
 
       const response = await fetch(appointmentsUrl, fetchConfig);
       if (response.ok) {
-          // const newAppointment = await response.json();
-          // console.log(newAppointment);
 
           setVin('');
           setCustomer('');
@@ -74,9 +72,6 @@ function AppointmentForm() {
     if (response.ok) {
       const data = await response.json();
       setTechnicians(data.technicians)
-      // for (let d of data.technicians) {
-      //   console.log(d.id)
-      // }
     }
   }
 

@@ -31,6 +31,7 @@ function SalespeopleList() {
 
     return (
         <>
+        <br></br>
         <h1>Salespeople</h1>
         <table className="table table-striped">
             <thead>

@@ -18,6 +18,7 @@ function SaleList() {
 
   return (
     <>
+    <br></br>
     <h1>Sales</h1>
       <table className="table table-striped">
         <thead>

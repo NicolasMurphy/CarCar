@@ -30,6 +30,7 @@ function CustomerList() {
 
     return (
         <>
+        <br></br>
         <h1>Customers</h1>
         <table className="table table-striped">
             <thead>

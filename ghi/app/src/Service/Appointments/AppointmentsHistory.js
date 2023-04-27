@@ -42,7 +42,7 @@ function AppointmentsHistory() {
       <>
       <br></br>
       <h1>Appointments History</h1>
-      <input class="form-control border-end-0 border rounded-pill" onChange={handleFilterValueChange} value={filterValue} placeholder="Filter Value" />
+      <input className="form-control border-end-0 border rounded-pill" onChange={handleFilterValueChange} value={filterValue} placeholder="Filter Value" />
       <table className="table table-striped">
         <thead>
           <tr>

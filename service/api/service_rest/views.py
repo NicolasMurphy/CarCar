@@ -16,18 +16,33 @@ def api_list_technicians(request):
             safe=False,
         )
     else:
-        content = json.loads(request.body)
-        technician = Technician.objects.create(**content)
-        return JsonResponse(
-            technician,
-            encoder=TechnicianListEncoder,
-            safe=False,
-        )
+        try:
+            content = json.loads(request.body)
+            technician = Technician.objects.create(**content)
+            return JsonResponse(
+                technician,
+                encoder=TechnicianListEncoder,
+                safe=False,
+            )
+        except:
+            response = JsonResponse(
+                {"message": "Could not create a technican"}
+            )
+            response.status_code = 400
+            return response
 
 @require_http_methods(["DELETE"])
 def api_delete_technician(request, id):
-    count, _ = Technician.objects.filter(id=id).delete()
-    return JsonResponse({"deleted": count > 0})
+    try:
+        technican = Technician.objects.get(id=id)
+        technican.delete()
+        return JsonResponse(
+            technican,
+            encoder=TechnicianListEncoder,
+            safe=False,
+        )
+    except Technician.DoesNotExist:
+        return JsonResponse({"message": "Technican Does not exist"}, status=404)
 
 
 @require_http_methods(["GET", "POST"])
@@ -46,36 +61,57 @@ def api_list_appointments(request):
             content["technician"] = technician
         except Technician.DoesNotExist:
             return JsonResponse(
-                {"message": "Invalid technician id"}, status=400
+                {"message": "Invalid technician id"}, status=404
             )
-        appointment = Appointment.create(**content)
+        try:
+            appointment = Appointment.create(**content)
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentListEncoder,
+                safe=False,
+            )
+        except:
+            response = JsonResponse(
+                {"message": "Could not create an appointment"}
+            )
+            response.status_code = 400
+            return response
+
+@require_http_methods(["DELETE"])
+def api_delete_appointment(request, id):
+    try:
+        appointment = Appointment.objects.get(id=id)
+        appointment.delete()
         return JsonResponse(
             appointment,
             encoder=AppointmentListEncoder,
             safe=False,
         )
-
-@require_http_methods(["DELETE"])
-def api_delete_appointment(request, id):
-    count, _ = Appointment.objects.filter(id=id).delete()
-    return JsonResponse({"deleted": count > 0})
+    except Appointment.DoesNotExist:
+        return JsonResponse({"message": "Appointment Does not exist"}, status=404)
 
 @require_http_methods(["PUT"])
 def api_cancel_appointment(request, id):
-    appointment = Appointment.objects.get(id=id)
-    appointment.cancel()
-    return JsonResponse(
-        appointment,
-        encoder=AppointmentListEncoder,
-        safe=False,
-    )
+    try:
+        appointment = Appointment.objects.get(id=id)
+        appointment.cancel()
+        return JsonResponse(
+            appointment,
+            encoder=AppointmentListEncoder,
+            safe=False,
+        )
+    except Appointment.DoesNotExist:
+        return JsonResponse({"message": "Appointment Does not exist"}, status=404)
 
 @require_http_methods(["PUT"])
 def api_finish_appointment(request, id):
-    appointment = Appointment.objects.get(id=id)
-    appointment.finish()
-    return JsonResponse(
-        appointment,
-        encoder=AppointmentListEncoder,
-        safe=False,
-    )
+    try:
+        appointment = Appointment.objects.get(id=id)
+        appointment.finish()
+        return JsonResponse(
+            appointment,
+            encoder=AppointmentListEncoder,
+            safe=False,
+        )
+    except Appointment.DoesNotExist:
+        return JsonResponse({"message": "Appointment Does not exist"}, status=404)

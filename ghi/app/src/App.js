@@ -24,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <div className="">
+      <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers">

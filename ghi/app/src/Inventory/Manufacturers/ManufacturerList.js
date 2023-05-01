@@ -17,27 +17,34 @@ function ManufacturerList() {
     }, [])
 
     return (
-        <>
-        <h1>Manufacturers</h1>
-            <table className="table table-striped">
-                <thead>
+    <div className="h-screen">
+        <br></br>
+            <h2 className="text-4xl font-bold text-white">Manufacturers</h2>
+        <br></br>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left text-gray-400">
+                <thead className="text-xs uppercase bg-gray-700 text-gray-400">
                     <tr>
-                        <th>Name</th>
+                        <th scope="col" className="px-6 py-3">
+                            Name
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {manufacturers.map(manufacturers => {
                         return(
-                            <tr key={manufacturers.id}>
-                                <td>{ manufacturers.name }</td>
+                            <tr key={manufacturers.id} className="border-b bg-gray-900 border-gray-700">
+                                <td className="px-6 py-4">
+                                    { manufacturers.name }
+                                </td>
                             </tr>
                         )
                     })}
                 </tbody>
             </table>
-        </>
+        </div>
+    </div>
     )
-
 }
 
 export default ManufacturerList;

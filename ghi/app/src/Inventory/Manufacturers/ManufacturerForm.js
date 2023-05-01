@@ -32,20 +32,18 @@ function ManufacturerForm () {
     }
 
     return(
-        <div className="row">
-        <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4">
-            <h1>Add Manufacturer</h1>
-            <form onSubmit={handleSubmit} id="create-manufacturer-form">
-                <div className="form-floating mb-3">
-                    <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
-                    <label htmlFor="name">Manufacturer Name</label>
-                </div>
-                <button className="btn btn-primary">Create</button>
-            </form>
-          </div>
-        </div>
-        </div>
+<div className="h-screen">
+    <div className="flex flex-col items-center">
+    <br></br>
+    <h2 className="text-4xl font-bold text-white">Add a Manufacturer</h2>
+    <br></br>
+        <form onSubmit={handleSubmit} className="flex flex-col flex-center bg-gray-800 rounded shadow-lg p-8" action="">
+            <label className="font-semibold text-xs" htmlFor="name"></label>
+            <input value={name} onChange={handleNameChange} className="flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2" type="text" placeholder="Manufacturer Name" required/>
+            <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Create</button>
+        </form>
+    </div>
+</div>
     )
 }
 

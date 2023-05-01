@@ -33,7 +33,7 @@ function ManufacturerList() {
                 <tbody>
                     {manufacturers.map(manufacturers => {
                         return(
-                            <tr key={manufacturers.id} className="border-b bg-gray-900 border-gray-700">
+                            <tr key={manufacturers.id} className="border-b even:bg-gray-800 odd:bg-gray-900 border-gray-700 ">
                                 <td className="px-6 py-4">
                                     { manufacturers.name }
                                 </td>

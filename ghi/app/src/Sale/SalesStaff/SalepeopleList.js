@@ -30,33 +30,37 @@ function SalespeopleList() {
 
 
     return (
-        <>
-        <br></br>
-        <h1>Salespeople</h1>
-        <table className="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Employee ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                {salespeople.map(salesperson => {
-                    return (
-                        <tr key={salesperson.id}>
-                            <td>{ salesperson.id }</td>
-                            <td>{ salesperson.first_name }</td>
-                            <td>{ salesperson.last_name }</td>
-                            <td>{ salesperson.employee_id }</td>
-                            <td><button className="btn btn-danger" id={salesperson.id} onClick={handleDeleteButton}>Delete</button></td>
+        <div className="h-screen">
+            <br></br>
+            <h1 className="text-4xl font-bold text-white">Salespeople</h1>
+            <br></br>
+            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table className="w-full text-sm text-left text-gray-400">
+                    <thead className="text-xs uppercase bg-gray-700 text-gray-400">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">ID</th>
+                            <th scope="col" className="px-6 py-3">First Name</th>
+                            <th scope="col" className="px-6 py-3">Last Name</th>
+                            <th scope="col" className="px-6 py-3">Employee ID</th>
+                            <th scope="col" className="px-6 py-3"></th>
                         </tr>
-                    );
-                })}
-            </tbody>
-        </table>
-        </>
+                    </thead>
+                    <tbody>
+                        {salespeople.map(salesperson => {
+                            return (
+                                <tr key={salesperson.id} className="border-b even:bg-gray-800 odd:bg-gray-900 border-gray-700">
+                                    <td className="px-6 py-4">{ salesperson.id }</td>
+                                    <td className="px-6 py-4">{ salesperson.first_name }</td>
+                                    <td className="px-6 py-4">{ salesperson.last_name }</td>
+                                    <td className="px-6 py-4">{ salesperson.employee_id }</td>
+                                    <td><button className="btn btn-danger" id={salesperson.id} onClick={handleDeleteButton}>Delete</button></td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 }
 

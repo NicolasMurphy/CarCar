@@ -48,30 +48,20 @@ function SalespeopleForm() {
     }
 
     return(
-        <div className="row">
-        <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4">
-            <h1>Create Sales Rep</h1>
-            <form onSubmit={handleSubmit} id="create-salespeople-form">
-                <div className="form-floating mb-3">
-                    <input value={firstName} onChange={handleFirstNameChange} placeholder="First Name" required type="text" name="firstName" id="firstName" className="form-control"/>
-                    <label htmlFor="firstName">First Name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input value={lastName} onChange={handleLastNameChange} placeholder="Last Name" required type="text" name="lastName" id="lastName" className="form-control"/>
-                    <label htmlFor="lastName">Last Name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input value={employeeId} onChange={handleEmployeeIdChange} placeholder="Employee Id" required type="text" name="employeeId" id="employeeId" className="form-control"/>
-                    <label htmlFor="employeeId">Employee ID</label>
-                </div>
-              <button className="btn btn-primary">Create</button>
-            </form>
-          </div>
-        </div>
+        <div className="h-screen">
+            <div className="flex flex-col items-center">
+                <br></br>
+                <h1 className="text-4xl font-bold text-white">Create Sales Rep</h1>
+                <br></br>
+                <form onSubmit={handleSubmit} className="flex flex-col flex-center bg-gray-800 rounded shadow-lg p-8" action="">
+                    <input value={firstName} onChange={handleFirstNameChange} placeholder="First Name" required type="text" name="firstName" id="firstName" className="flex items-center mb-2 h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"/>
+                    <input value={lastName} onChange={handleLastNameChange} placeholder="Last Name" required type="text" name="lastName" id="lastName" className="flex items-center mb-2 h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"/>
+                    <input value={employeeId} onChange={handleEmployeeIdChange} placeholder="Employee Id" required type="text" name="employeeId" id="employeeId" className="flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"/>
+                    <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-m text-blue-100 hover:bg-blue-700">Create</button>
+                </form>
+            </div>
         </div>
     )
-
 }
 
 export default SalespeopleForm;

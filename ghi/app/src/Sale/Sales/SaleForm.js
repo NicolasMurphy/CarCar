@@ -98,55 +98,46 @@ function SaleForm() {
   }, []);
 
     return (
-      <div className="row">
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 mt-4">
-          <h1>Add a Sale</h1>
-          <form onSubmit={handleSubmit} id="create-sale-form">
-              <div className="mb-3">
-                <select value={automobile} onChange={handleAutomobileChange} required name="automobile" id="automobile" className="form-select">
-                  <option value="">Choose an Automobile VIN</option>
-                  {autos.map(automobile => {
-                    return (
-                        <option key={automobile.vin} value={automobile.vin}>
-                            {automobile.vin}
-                        </option>
-                    );
-                })}
-                </select>
-              </div>
-              <div className="mb-3">
-                <select value={salesperson} onChange={handleSalespersonChange} required name="salesperson" id="salesperson" className="form-select">
-                  <option value="">Choose a Salesperson</option>
-                  {salespeople.map(salesperson => {
-                    return (
-                        <option key={salesperson.id} value={salesperson.id}>
-                            {salesperson.first_name + ' ' + salesperson.last_name}
-                        </option>
-                    );
-                })}
-                </select>
-              </div>
-              <div className="mb-3">
-                <select value={customer} onChange={handleCustomerChange} required name="customer" id="customer" className="form-select">
-                  <option value="">Choose a Customer</option>
-                  {customers.map(customer => {
-                    return (
-                        <option key={customer.id} value={customer.id}>
-                            {customer.first_name + ' ' + customer.last_name}
-                        </option>
-                    );
-                })}
-                </select>
-              </div>
-              <div className="form-floating mb-3">
-                  <input value={price} onChange={handlePriceChange} placeholder="Price" required type="text" name="price" id="price" className="form-control"></input>
-                  <label htmlFor="price">Price</label>
-              </div>
-            <button className="btn btn-primary">Create</button>
+      <div className="h-screen">
+        <div className="flex flex-col items-center">
+        <br></br>
+        <h1 className="text-4xl font-bold text-white">Add a Sale</h1>
+        <br></br>
+          <form onSubmit={handleSubmit} className="flex flex-col flex-center bg-gray-800 rounded shadow-lg p-8" action="">
+            <select value={automobile} onChange={handleAutomobileChange} required name="automobile" id="automobile" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2">
+              <option value="">Choose an Automobile VIN</option>
+              {autos.map(automobile => {
+                return (
+                    <option className="text-white" key={automobile.vin} value={automobile.vin}>
+                        {automobile.vin}
+                    </option>
+                );
+            })}
+            </select>
+            <select value={salesperson} onChange={handleSalespersonChange} required name="salesperson" id="salesperson" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2">
+              <option value="">Choose a Salesperson</option>
+              {salespeople.map(salesperson => {
+                return (
+                    <option className="text-white" key={salesperson.id} value={salesperson.id}>
+                        {salesperson.first_name + ' ' + salesperson.last_name}
+                    </option>
+                );
+            })}
+            </select>
+            <select value={customer} onChange={handleCustomerChange} required name="customer" id="customer" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2">
+              <option value="">Choose a Customer</option>
+              {customers.map(customer => {
+                return (
+                    <option className="text-white" key={customer.id} value={customer.id}>
+                        {customer.first_name + ' ' + customer.last_name}
+                    </option>
+                );
+            })}
+            </select>
+            <input value={price} onChange={handlePriceChange} placeholder="Price" required type="text" name="price" id="price" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"></input>
+            <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-m text-blue-100 hover:bg-blue-700">Create</button>
           </form>
         </div>
-      </div>
       </div>
 
     );

@@ -38,44 +38,45 @@ function SaleHistory() {
 
 
     return (
-      <>
+      <div className="h-screen">
         <br></br>
-        <h1>Sales History</h1>
-        <div className="mb-3">
-          <select value={salesperson} onChange={handleSalespersonChange} required name="salespeople" id="salespeople" className="form-select">
+        <h1 className="text-4xl font-bold text-white">Sales History</h1>
+        <br></br>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <select value={salesperson} onChange={handleSalespersonChange} required name="salespeople" id="salespeople" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2">
               <option value="">Choose a Salesperson</option>
                 {salespeople.map(salesperson => {
                   return (
-                    <option key={salesperson.employee_id} value={salesperson.employee_id}>
+                    <option className="text-white" key={salesperson.employee_id} value={salesperson.employee_id}>
                       {salesperson.first_name + ' ' + salesperson.last_name}
                     </option>
                   );
                 })}
           </select>
         </div>
-        <table className="table table-striped">
-          <thead>
+        <table className="w-full text-sm text-left text-gray-400">
+          <thead className="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
-              <th>Salesperson</th>
-              <th>Customer</th>
-              <th>VIN</th>
-              <th>Price</th>
+              <th scope="col" className="px-6 py-3">Salesperson</th>
+              <th scope="col" className="px-6 py-3">Customer</th>
+              <th scope="col" className="px-6 py-3">VIN</th>
+              <th scope="col" className="px-6 py-3">Price</th>
             </tr>
           </thead>
           <tbody>
             {sales.filter((sale) => sale.salesperson.employee_id === parseInt(salesperson)).map(sale => {
               return (
-                <tr key={sale.id}>
-                  <td>{ `${sale.salesperson.first_name} ${sale.salesperson.last_name}` }</td>
-                  <td>{ `${sale.customer.first_name} ${sale.customer.last_name}` }</td>
-                  <td>{ sale.automobile.vin }</td>
-                  <td>{ sale.price }</td>
+                <tr key={sale.id} className="border-b even:bg-gray-800 odd:bg-gray-900 border-gray-700">
+                  <td className="px-6 py-4">{ `${sale.salesperson.first_name} ${sale.salesperson.last_name}` }</td>
+                  <td className="px-6 py-4">{ `${sale.customer.first_name} ${sale.customer.last_name}` }</td>
+                  <td className="px-6 py-4">{ sale.automobile.vin }</td>
+                  <td className="px-6 py-4">{ sale.price }</td>
                 </tr>
               );
             })}
           </tbody>
       </table>
-    </>
+    </div>
   );
 }
 

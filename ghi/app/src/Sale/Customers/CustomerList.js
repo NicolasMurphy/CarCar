@@ -29,35 +29,39 @@ function CustomerList() {
     }, [])
 
     return (
-        <>
-        <br></br>
-        <h1>Customers</h1>
-        <table className="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Address</th>
-                    <th>Phone Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                {customers.map(customers => {
-                    return(
-                        <tr key={customers.id}>
-                            <td>{ customers.id }</td>
-                            <td>{ customers.first_name }</td>
-                            <td>{ customers.last_name }</td>
-                            <td>{ customers.address }</td>
-                            <td>{ customers.phone_number }</td>
-                            <td><button className="btn btn-danger" id={customers.id} onClick={handleDeleteButton}>Delete</button></td>
+        <div className="h-screen">
+            <br></br>
+            <h1 className="text-4xl font-bold text-white">Customers</h1>
+            <br></br>
+            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table className="w-full text-sm text-left text-gray-400">
+                    <thead className="text-xs uppercase bg-gray-700 text-gray-400">
+                        <tr>
+                            <th scope="col" className="px-6 py-3">ID</th>
+                            <th scope="col" className="px-6 py-3">First Name</th>
+                            <th scope="col" className="px-6 py-3">Last Name</th>
+                            <th scope="col" className="px-6 py-3">Address</th>
+                            <th scope="col" className="px-6 py-3">Phone Number</th>
+                            <th scope="col" className="px-6 py-3"></th>
                         </tr>
-                    );
-                })}
-            </tbody>
-        </table>
-        </>
+                    </thead>
+                    <tbody>
+                        {customers.map(customers => {
+                            return(
+                                <tr key={customers.id} className="border-b even:bg-gray-800 odd:bg-gray-900 border-gray-700">
+                                    <td className="px-6 py-4">{ customers.id }</td>
+                                    <td className="px-6 py-4">{ customers.first_name }</td>
+                                    <td className="px-6 py-4">{ customers.last_name }</td>
+                                    <td className="px-6 py-4">{ customers.address }</td>
+                                    <td className="px-6 py-4">{ customers.phone_number }</td>
+                                    <td><button className="btn btn-danger" id={customers.id} onClick={handleDeleteButton}>Delete</button></td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
   }
 

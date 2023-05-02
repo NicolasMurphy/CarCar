@@ -38,8 +38,7 @@ function ManufacturerForm () {
     <h2 className="text-4xl font-bold text-white">Add a Manufacturer</h2>
     <br></br>
         <form onSubmit={handleSubmit} className="flex flex-col flex-center bg-gray-800 rounded shadow-lg p-8" action="">
-            <label className="font-semibold text-xs" htmlFor="name"></label>
-            <input value={name} onChange={handleNameChange} className="flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2" type="text" placeholder="Manufacturer Name" required/>
+            <input value={name} onChange={handleNameChange} className="text-white flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2" type="text" placeholder="Manufacturer Name" required/>
             <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Create</button>
         </form>
     </div>

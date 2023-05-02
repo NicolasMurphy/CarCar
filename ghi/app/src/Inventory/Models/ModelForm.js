@@ -68,37 +68,62 @@ function ModelForm() {
 
 
   return (
-      <div className="row">
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 mt-4">
-          <h1>Create a Model</h1>
-          <form onSubmit={handleSubmit} id="create-model-form">
+      // <div className="row">
+      // <div className="offset-3 col-6">
+      //   <div className="shadow p-4 mt-4">
+      //     <h1>Create a Model</h1>
+      //     <form onSubmit={handleSubmit} id="create-model-form">
 
-              <div className="form-floating mb-3">
-                  <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"></input>
-                  <label htmlFor="name">Name</label>
-              </div>
-              <div className="form-floating mb-3">
-                  <input value={picture_url} onChange={handlePictureUrlChange} placeholder="Picture url" required type="text" name="picture_url" id="picture_url" className="form-control"></input>
-                  <label htmlFor="picture_url">Picture url</label>
-              </div>
-              <div className="mb-3">
-                <select onChange={handleManufacturerChange} required name="manufacturers" id="manufacturers" className="form-select">
-                  <option value="">Choose a manufacturer</option>
-                  {manufacturers.map(manufacturer => {
-                    return (
-                        <option key={manufacturer.id} value={manufacturer.id}>
-                            {manufacturer.name}
-                        </option>
+      //         <div className="form-floating mb-3">
+      //             <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"></input>
+      //             <label htmlFor="name">Name</label>
+      //         </div>
+      //         <div className="form-floating mb-3">
+      //             <input value={picture_url} onChange={handlePictureUrlChange} placeholder="Picture url" required type="text" name="picture_url" id="picture_url" className="form-control"></input>
+      //             <label htmlFor="picture_url">Picture url</label>
+      //         </div>
+      //         <div className="mb-3">
+      //           <select onChange={handleManufacturerChange} required name="manufacturers" id="manufacturers" className="form-select">
+      //             <option value="">Choose a manufacturer</option>
+      //             {manufacturers.map(manufacturer => {
+      //               return (
+      //                   <option key={manufacturer.id} value={manufacturer.id}>
+      //                       {manufacturer.name}
+      //                   </option>
+      //               );
+      //           })}
+      //           </select>
+      //         </div>
+      //       <button className="btn btn-primary">Create</button>
+      //     </form>
+      //   </div>
+      // </div>
+      // </div>
+
+<div className="h-screen">
+    <div className="flex flex-col items-center">
+    <br></br>
+    <h2 className="text-4xl font-bold text-white">Add a Model</h2>
+    <br></br>
+        <form onSubmit={handleSubmit} className="flex flex-col flex-center bg-gray-800 rounded shadow-lg p-8" action="">
+            <input value={name} onChange={handleNameChange} className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2" type="text" placeholder="Model Name" required/>
+            <input value={picture_url} onChange={handlePictureUrlChange} className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2" type="text" placeholder="Picture URL" required/>
+
+            <select onChange={handleManufacturerChange} className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2">
+                <option>Choose a manufacturer</option>
+                    {manufacturers.map(manufacturer => {
+                        return (
+                            <option className="text-white" key={manufacturer.id} value={manufacturer.id}>
+                                {manufacturer.name}
+                            </option>
                     );
                 })}
-                </select>
-              </div>
-            <button className="btn btn-primary">Create</button>
-          </form>
-        </div>
-      </div>
-      </div>
+            </select>
+
+            <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Create</button>
+        </form>
+    </div>
+</div>
 
   );
 }

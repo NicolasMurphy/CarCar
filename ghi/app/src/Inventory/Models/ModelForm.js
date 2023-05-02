@@ -68,37 +68,6 @@ function ModelForm() {
 
 
   return (
-      // <div className="row">
-      // <div className="offset-3 col-6">
-      //   <div className="shadow p-4 mt-4">
-      //     <h1>Create a Model</h1>
-      //     <form onSubmit={handleSubmit} id="create-model-form">
-
-      //         <div className="form-floating mb-3">
-      //             <input value={name} onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"></input>
-      //             <label htmlFor="name">Name</label>
-      //         </div>
-      //         <div className="form-floating mb-3">
-      //             <input value={picture_url} onChange={handlePictureUrlChange} placeholder="Picture url" required type="text" name="picture_url" id="picture_url" className="form-control"></input>
-      //             <label htmlFor="picture_url">Picture url</label>
-      //         </div>
-      //         <div className="mb-3">
-      //           <select onChange={handleManufacturerChange} required name="manufacturers" id="manufacturers" className="form-select">
-      //             <option value="">Choose a manufacturer</option>
-      //             {manufacturers.map(manufacturer => {
-      //               return (
-      //                   <option key={manufacturer.id} value={manufacturer.id}>
-      //                       {manufacturer.name}
-      //                   </option>
-      //               );
-      //           })}
-      //           </select>
-      //         </div>
-      //       <button className="btn btn-primary">Create</button>
-      //     </form>
-      //   </div>
-      // </div>
-      // </div>
 
 <div className="h-screen">
     <div className="flex flex-col items-center">
@@ -120,7 +89,7 @@ function ModelForm() {
                 })}
             </select>
 
-            <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Create</button>
+            <button className="flex items-center justify-center h-12 px-6 w-64 bg-cyan-700 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-cyan-800">Create</button>
         </form>
     </div>
 </div>

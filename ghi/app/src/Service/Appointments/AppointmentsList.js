@@ -63,42 +63,6 @@ function AppointmentsList() {
 
     return (
       <>
-      {/* <br></br>
-      <h1>Appointments</h1>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Vin</th>
-            <th>Is VIP?</th>
-            <th>Customer</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Technician</th>
-            <th>Reason</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {appointments.map(appointment => {
-            let str = JSON.stringify(autos)
-            return (
-              <tr key={appointment.id}>
-                <td>{ appointment.vin }</td>
-                <td>{ ((str.includes(appointment.vin)) ? "yes" : "no") }</td>
-                <td>{ appointment.customer }</td>
-                <td>{ appointment.date_time.split("T")[0] }</td>
-                <td>{ formatTime(appointment.date_time.split("T")[1].split("+")[0]) }</td>
-                <td>{ `${appointment.technician.first_name} ${appointment.technician.last_name}` }</td>
-                <td>{ appointment.reason }</td>
-                <td>
-                  <button className="btn btn-danger" onClick={handleCancel} id={appointment.id}>Cancel</button>
-                  <button className="btn btn-success" onClick={handleFinish} id={appointment.id}>Finish</button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table> */}
 
 <div className="h-screen">
         <br></br>

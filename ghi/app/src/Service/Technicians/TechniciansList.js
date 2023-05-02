@@ -17,28 +17,6 @@ function TechniciansList() {
 
     return (
       <>
-      {/* <br></br>
-      <h1>Technicians</h1>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Employee id</th>
-          </tr>
-        </thead>
-        <tbody>
-          {technicians.map(technician => {
-            return (
-              <tr key={technician.employee_id}>
-                <td>{ technician.first_name }</td>
-                <td>{ technician.last_name }</td>
-                <td>{ technician.employee_id }</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table> */}
 
 <div className="h-screen">
         <br></br>

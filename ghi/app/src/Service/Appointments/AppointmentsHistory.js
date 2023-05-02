@@ -40,48 +40,12 @@ function AppointmentsHistory() {
 
     return (
       <>
-      {/* <br></br>
-      <h1>Appointments History</h1>
-      <input className="form-control border-end-0 border rounded-pill" onChange={handleFilterValueChange} value={filterValue} placeholder="Filter Value" />
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Vin</th>
-            <th>Is VIP?</th>
-            <th>Customer</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Technician</th>
-            <th>Reason</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {appointments
-          .filter((appointment) => appointment.vin.toLowerCase().includes(filterValue.toLowerCase()))
-          .map(appointment => {
-            let str = JSON.stringify(autos)
-            return (
-              <tr key={appointment.id}>
-                <td>{ appointment.vin }</td>
-                <td>{ ((str.includes(appointment.vin)) ? "yes" : "no") }</td>
-                <td>{ appointment.customer }</td>
-                <td>{ appointment.date_time.split("T")[0] }</td>
-                <td>{ formatTime(appointment.date_time.split("T")[1].split("+")[0]) }</td>
-                <td>{ `${appointment.technician.first_name} ${appointment.technician.last_name}` }</td>
-                <td>{ appointment.reason }</td>
-                <td>{ appointment.status }</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table> */}
 
 <div className="h-screen">
         <br></br>
             <h2 className="text-4xl font-bold text-white">Appointments History</h2>
         <br></br>
-        {/* <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={handleFilterValueChange} value={filterValue} placeholder="Filter Value" /> */}
+
 
 
     <div class="relative w-full">

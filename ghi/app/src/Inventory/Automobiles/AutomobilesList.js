@@ -27,35 +27,42 @@ function AutomobilesList() {
 
     return (
       <>
-      <br></br>
-      <h1>Automobiles</h1>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Vin</th>
-            <th>Color</th>
-            <th>Year</th>
-            <th>Model</th>
-            <th>Manufacturer</th>
-            <th>Sold</th>
-          </tr>
-        </thead>
-        <tbody>
-          {autos.map(auto => {
-            let str = JSON.stringify(sales)
-            return (
-              <tr key={auto.vin}>
-                <td>{ auto.vin }</td>
-                <td>{ auto.color }</td>
-                <td>{ auto.year }</td>
-                <td>{ auto.model.name }</td>
-                <td>{ auto.model.manufacturer.name }</td>
-                <td>{ (str.includes(auto.vin)) ? "yes" : "no" }</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+
+<div className="h-screen">
+        <br></br>
+            <h2 className="text-4xl font-bold text-white">Automobiles</h2>
+        <br></br>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left text-gray-400">
+                <thead className="text-xs uppercase bg-gray-700 text-gray-400">
+                    <tr>
+                        <th scope="col" className="px-6 py-3">Vin</th>
+                        <th scope="col" className="px-6 py-3">Color</th>
+                        <th scope="col" className="px-6 py-3">Year</th>
+                        <th scope="col" className="px-6 py-3">Model</th>
+                        <th scope="col" className="px-6 py-3">Manufacturer</th>
+                        <th scope="col" className="px-6 py-3">Sold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {autos.map(auto => {
+                      let str = JSON.stringify(sales);
+                        return(
+                            <tr key={auto.vin} className="border-b even:bg-gray-800 odd:bg-gray-900 border-gray-700 ">
+                                <td className="px-6 py-4">{ auto.vin }</td>
+                                <td className="px-6 py-4">{ auto.color }</td>
+                                <td className="px-6 py-4">{ auto.year }</td>
+                                <td className="px-6 py-4">{ auto.model.name }</td>
+                                <td className="px-6 py-4">{ auto.model.manufacturer.name }</td>
+                                <td className="px-6 py-4">{ ((str.includes(auto.vin)) ? "Yes" : "No") }</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
       </>
     );
   }

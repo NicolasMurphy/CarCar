@@ -17,28 +17,6 @@ function ModelsList() {
 
     return (
       <>
-      {/* <br></br>
-      <h1>Models</h1>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Manufacturer</th>
-            <th>Picture name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {models.map(model => {
-            return (
-              <tr key={model.href}>
-                <td>{ model.name }</td>
-                <td>{ model.manufacturer.name }</td>
-                <td><img src={ model.picture_url } width="170" height="110" /></td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table> */}
 
 <div className="h-screen">
         <br></br>

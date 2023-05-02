@@ -135,7 +135,7 @@ function SaleForm() {
             })}
             </select>
             <input value={price} onChange={handlePriceChange} placeholder="Price" required type="text" name="price" id="price" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"></input>
-            <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-m text-blue-100 hover:bg-blue-700">Create</button>
+            <button className="flex items-center justify-center h-12 px-6 w-64 bg-cyan-700 mt-8 rounded font-semibold text-m text-blue-100 hover:bg-cyan-800">Create</button>
           </form>
         </div>
       </div>

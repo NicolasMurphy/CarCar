@@ -69,40 +69,34 @@ function AutomobileForm () {
     }, []);
 
     return(
-        <div className="row">
-        <div className="offset-3 col-6">
-          <div className="shadow p-4 mt-4">
-            <h1>Add an Automobile</h1>
-            <form onSubmit={handleSubmit} id="create-automobile-form">
-                <div className="form-floating mb-3">
-                    <input value={color} onChange={handleColorChange} placeholder="Color" required type="text" name="color" id="color" className="form-control"></input>
-                    <label htmlFor="color">Color</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input value={year} onChange={handleYearChange} placeholder="Year" required type="text" name="year" id="year" className="form-control"></input>
-                    <label htmlFor="year">Year</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input value={vin} onChange={handleVinChange} placeholder="Vin" required type="text" name="vin" id="vin" className="form-control"></input>
-                    <label htmlFor="vin">Vin</label>
-                </div>
-              <div className="mb-3">
-                <select value={model} onChange={handleModelChange} required name="model" id="model" className="form-select">
-                  <option value="">Choose a model</option>
-                  {models.map(model => {
-                    return (
-                        <option key={model.id} value={model.id}>
-                            {model.name}
-                        </option>
-                    );
-                })}
-                </select>
-              </div>
-              <button className="btn btn-primary">Create</button>
-            </form>
-          </div>
+        <div className="h-screen">
+            <div className="flex flex-col items-center">
+            <br></br>
+            <h1 className="text-4xl font-bold text-white">Add an Automobile</h1>
+            <br></br>
+                <form onSubmit={handleSubmit} className="flex flex-col flex-center bg-gray-800 rounded shadow-lg p-8" action="">
+                    <input value={color} onChange={handleColorChange} placeholder="Color" required type="text" name="color" id="color" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"></input>
+
+                    <input value={year} onChange={handleYearChange} placeholder="Year" required type="text" name="year" id="year" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"></input>
+
+                    <input value={vin} onChange={handleVinChange} placeholder="Vin" required type="text" name="vin" id="vin" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"></input>
+
+                    <select value={model} onChange={handleModelChange} required name="model" id="model" className="text-white mb-2 flex items-center h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2">
+                    <option value="">Choose a model</option>
+                    {models.map(model => {
+                        return (
+                            <option key={model.id} value={model.id}>
+                                {model.name}
+                            </option>
+                        );
+                    })}
+                    </select>
+
+                <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Create</button>
+                </form>
+            </div>
         </div>
-        </div>
+
     )
 
 

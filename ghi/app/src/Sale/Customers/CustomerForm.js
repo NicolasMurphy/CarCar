@@ -66,7 +66,7 @@ function CustomerForm() {
                     <input value={lastName} onChange={handleLastNameChange} placeholder="Last Name" required type="text" name="lastName" id="lastName" className="flex items-center mb-2 h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"/>
                     <input value={address} onChange={handleAddressChange} placeholder="Address" required type="text" name="address" id="address" className="flex items-center mb-2 h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"/>
                     <input value={phoneNumber} onChange={handlePhoneNumberChange} placeholder="Phone Number" required type="text" name="phoneNumber" id="phoneNumber" className="flex items-center mb-2 h-12 px-4 w-64 bg-gray-600 mt-2 rounded focus:outline-none focus:ring-2"/>
-                    <button className="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-m text-blue-100 hover:bg-blue-700">Create</button>
+                    <button className="flex items-center justify-center h-12 px-6 w-64 bg-cyan-700 mt-8 rounded font-semibold text-m text-blue-100 hover:bg-cyan-800">Create</button>
                 </form>
             </div>
         </div>

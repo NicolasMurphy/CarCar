@@ -4,7 +4,7 @@ function MainPage() {
     <>
     <br></br>
     <div className="bg-cyan-900 text-center rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl w-full">
-      <h1 className="font-bold text-white">CarCar</h1>
+      <h1 className="text-5xl font-bold text-white">CarCar</h1>
       <div className="">
         <p className="m-4 text-white">
           The premiere solution for automobile dealership

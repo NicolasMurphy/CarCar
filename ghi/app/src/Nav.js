@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 function Nav() {
   return (
     <nav className="bg-cyan-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ml-4">
         <div className="flex h-17">
           <div className="flex-shrink-0 flex items-center">
-            <img src="https://www.clipartmax.com/png/middle/39-396570_8900-car-dealer-logo-png.png" className="h-10 max-w-15"></img>
+            <NavLink to="/"><img src="/pngwing.com.png" className="h-10 max-w-15 px-5"></img></NavLink>
             <NavLink className="text-white font-bold text-xl" to="/">CarCar</NavLink>
           </div>
           <div className="hidden md:block">

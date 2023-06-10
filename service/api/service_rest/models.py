@@ -2,15 +2,15 @@ from django.db import models
 from django.urls import reverse
 
 
-class Status(models.Model):
-    name = models.CharField(max_length=10)
+# class Status(models.Model):
+#     name = models.CharField(max_length=10)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
-    class Meta:
-        ordering = ("id",)  # Default ordering for Status
-        verbose_name_plural = "statuses"  # Fix the pluralization
+#     class Meta:
+#         ordering = ("id",)  # Default ordering for Status
+#         verbose_name_plural = "statuses"  # Fix the pluralization
 
 
 class Technician(models.Model):
@@ -34,34 +34,9 @@ class Appointment(models.Model):
     vin = models.CharField(max_length=17, unique=True)
     customer = models.CharField(max_length=100)
     is_vip = models.BooleanField(default=False)
+    status = models.CharField(max_length=100, default="Created")
     technician = models.ForeignKey(
         Technician,
         related_name="appointments",
         on_delete=models.CASCADE,
     )
-
-
-# maybe status like this?
-    status = models.ForeignKey(
-        Status,
-        related_name="appointments",
-        on_delete=models.PROTECT,
-        null=True,
-    )
-
-    def cancel(self):
-        status = Status.objects.get(name="CANCELLED")
-        self.status = status
-        self.save()
-
-    def finish(self):
-        status = Status.objects.get(name="FINISHED")
-        self.status = status
-        self.save()
-
-    @classmethod
-    def create(cls, **kwargs):
-        kwargs["status"] = Status.objects.get(name="CREATED")
-        appointment = cls(**kwargs)
-        appointment.save()
-        return appointment

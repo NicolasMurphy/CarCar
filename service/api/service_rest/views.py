@@ -64,7 +64,7 @@ def api_list_appointments(request):
                 {"message": "Invalid technician id"}, status=404
             )
         try:
-            appointment = Appointment.create(**content)
+            appointment = Appointment.objects.create(**content)
             return JsonResponse(
                 appointment,
                 encoder=AppointmentListEncoder,
@@ -94,7 +94,8 @@ def api_delete_appointment(request, id):
 def api_cancel_appointment(request, id):
     try:
         appointment = Appointment.objects.get(id=id)
-        appointment.cancel()
+        appointment.status = "CANCELLED"
+        appointment.save()
         return JsonResponse(
             appointment,
             encoder=AppointmentListEncoder,
@@ -107,7 +108,9 @@ def api_cancel_appointment(request, id):
 def api_finish_appointment(request, id):
     try:
         appointment = Appointment.objects.get(id=id)
-        appointment.finish()
+        appointment.status = "FINISHED"
+        appointment.save()
+
         return JsonResponse(
             appointment,
             encoder=AppointmentListEncoder,

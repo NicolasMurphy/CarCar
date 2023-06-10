@@ -1,6 +1,15 @@
-# CarCar
+## How to view this project
 
-Team:
+1. Fork and Clone this project
+2. Open Docker Desktop
+3. From the cloned directory, type:
+    > `docker volume create beta-data`
+4. Now type:
+    > `docker-compose up`
+5. View the project at localhost:3000, it should look like this:
+    ![CarCar](CarCar.png)
+
+# Team
 
 * Nicolas Murphy - Service
 * Paul Baumann - Sales
